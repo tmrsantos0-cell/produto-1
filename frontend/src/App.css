@@ -1,0 +1,1232 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==================== STATUS BAR DO CELULAR ==================== */
+
+.status-bar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  z-index: 9999 !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.status-time {
+  letter-spacing: 0.02em;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icons svg {
+  opacity: 0.9;
+}
+
+/* ==================== ETAPA 1 - TELA DE INTRODUÇÃO ==================== */
+
+.intro-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0a0e0f 0%, #0d1f1f 50%, #0f2a2a 100%);
+  padding: 2rem;
+  padding-top: 4rem;
+  position: relative;
+}
+
+.intro-content {
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 3rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sound-icon {
+  margin: 2rem 0;
+  color: #ffffff;
+  opacity: 0.9;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.intro-subtitle {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.start-button {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1.2rem 4rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+  text-transform: none;
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.start-button:hover {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(220, 38, 38, 0.5);
+}
+
+.start-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 15px rgba(220, 38, 38, 0.4);
+}
+
+.already-passed-link {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  font-weight: 400;
+}
+
+.already-passed-link:hover {
+  color: #d1d5db;
+  text-decoration-color: #d1d5db;
+}
+
+/* ==================== ETAPA 2 - TELA DE LIGAÇÃO ==================== */
+
+.call-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  padding: 2rem;
+  padding-top: 4rem;
+  position: relative;
+}
+
+.call-content {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.caller-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.caller-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  animation: callPulse 2s infinite;
+}
+
+@keyframes callPulse {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(255, 255, 255, 0.4);
+    transform: scale(1.02);
+  }
+}
+
+.caller-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caller-status {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.caller-name {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.caller-request {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  font-weight: 300;
+}
+
+.call-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.call-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.button-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.button-icon-small {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.call-button span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.decline-button .button-icon {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.decline-button:hover .button-icon {
+  background: #ef4444;
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
+}
+
+.answer-button .button-icon {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.answer-button:hover .button-icon {
+  background: #34d399;
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
+}
+
+.secondary-button:hover .button-icon-small {
+  background: #374151;
+  transform: scale(1.1);
+}
+
+.secondary-button .button-icon-small {
+  color: #ffffff;
+}
+
+.secondary-button span {
+  font-size: 1rem;
+}
+
+/* ==================== ETAPA 3 - TELA EM CHAMADA ==================== */
+
+.in-call-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  padding: 2rem;
+  padding-top: 4rem;
+  position: relative;
+}
+
+.in-call-content {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.in-call-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.in-call-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.in-call-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.in-call-name {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.in-call-status {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.call-timer {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.in-call-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.control-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.control-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2d3748;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.control-button:hover .control-icon {
+  background: #374151;
+  transform: scale(1.05);
+}
+
+.control-button.active .control-icon {
+  background: #ffffff;
+  color: #000000;
+}
+
+.control-button span {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-transform: lowercase;
+}
+
+/* ==================== ETAPA 4 - TELA FIM DA CHAMADA ==================== */
+
+.end-call-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  padding: 2rem;
+  padding-top: 4rem;
+  position: relative;
+}
+
+.end-call-content {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.end-call-icon {
+  margin-bottom: 3rem;
+}
+
+.phone-icon-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 69, 69, 0.4) 0%, rgba(69, 26, 26, 0.6) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+}
+
+.end-call-title {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.end-call-timer {
+  font-size: 1.3rem;
+  color: #9ca3af;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 4rem;
+}
+
+.end-call-message {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.progress-bar-container {
+  width: 100%;
+  max-width: 400px;
+  height: 4px;
+  background: #1f2937;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #6b7280;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+/* ==================== ETAPA 5 - TELA DA VERDADE ==================== */
+
+.truth-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #1a2332 0%, #0f1419 100%);
+  padding: 2rem;
+  padding-top: 4rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+.truth-content {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.flag-top {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.flag-top img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.main-image {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.truth-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.truth-subtitle {
+  font-size: 1rem;
+  color: #ef4444;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.flag-small {
+  margin-bottom: 0.5rem;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.flag-small img {
+  width: 100%;
+  height: auto;
+}
+
+.defender-text {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.warning-text {
+  font-size: 1rem;
+  color: #d1d5db;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+  font-weight: 300;
+}
+
+.truth-button {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1.3rem 3.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 25px rgba(220, 38, 38, 0.5);
+  text-transform: none;
+  letter-spacing: 0.03em;
+  width: 100%;
+  max-width: 450px;
+  animation: buttonPulse 2s infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 6px 25px rgba(220, 38, 38, 0.5);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 8px 35px rgba(220, 38, 38, 0.7);
+  }
+}
+
+.truth-button:hover {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  transform: scale(1.05) !important;
+  box-shadow: 0 8px 35px rgba(220, 38, 38, 0.7) !important;
+}
+
+.truth-button:active {
+  transform: scale(0.98) !important;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5) !important;
+}
+
+/* ==================== ETAPA FINAL - PROCESSAMENTO ==================== */
+
+.final-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0f1419 0%, #000000 100%);
+  padding: 2rem;
+  padding-top: 4rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+.final-content {
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.final-flag {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.final-flag img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.final-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.final-subtitle {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.final-loading-section {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.final-loading-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0 0.5rem;
+}
+
+.final-loading-label {
+  font-size: 1rem;
+  color: #d1d5db;
+  font-weight: 400;
+}
+
+.final-loading-percentage {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.final-progress-container {
+  width: 100%;
+  height: 10px;
+  background: #1f2937;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.final-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #fbbf24 0%, #10b981 100%);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+.final-image {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.final-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  border: 1px solid #2d3748;
+}
+
+/* ==================== ETAPA 6 - QUIZ ==================== */
+
+.quiz-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #1a2838 0%, #0f1419 100%);
+  padding: 2rem;
+  padding-top: 4rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+.quiz-content {
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.quiz-flag {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-flag img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.quiz-progress-container {
+  width: 100%;
+  max-width: 600px;
+  height: 8px;
+  background: linear-gradient(90deg, #1a2838 0%, #2d3f52 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #fbbf24 0%, #10b981 100%);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.quiz-question {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.quiz-options {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.quiz-option-button {
+  width: 100%;
+  background: linear-gradient(135deg, #1e4d3c 0%, #143829 100%);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 1.3rem 2rem;
+  border: 2px solid #2d6a4f;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-option-button:hover {
+  background: linear-gradient(135deg, #2d6a4f 0%, #1e4d3c 100%);
+  transform: translateX(5px);
+  border-color: #40916c;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.quiz-option-button:active {
+  transform: translateX(2px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-option-button svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.quiz-counter {
+  font-size: 1rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+@media (max-width: 768px) {
+  .status-bar {
+    height: 40px;
+    padding: 0 1rem;
+    font-size: 0.85rem;
+  }
+
+  .intro-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .start-button {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+
+  .sound-icon {
+    margin: 1.5rem 0;
+  }
+
+  .caller-avatar,
+  .in-call-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .caller-name,
+  .in-call-name,
+  .end-call-title {
+    font-size: 1.75rem;
+  }
+
+  .button-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .button-icon-small {
+    width: 55px;
+    height: 55px;
+  }
+
+  .control-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .phone-icon-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .phone-icon-circle svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .action-row,
+  .control-row {
+    gap: 1.5rem;
+  }
+
+  .call-timer,
+  .end-call-timer {
+    font-size: 1.3rem;
+  }
+
+  .truth-title {
+    font-size: 2.5rem;
+  }
+
+  .truth-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .truth-button {
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-bar {
+    height: 36px;
+    padding: 0 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .status-icons svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .intro-screen,
+  .call-screen,
+  .in-call-screen,
+  .end-call-screen,
+  .truth-screen {
+    padding: 1.5rem;
+    padding-top: 3rem;
+  }
+
+  .intro-title {
+    font-size: 1.5rem;
+  }
+
+  .intro-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .start-button {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .caller-avatar,
+  .in-call-avatar {
+    width: 130px;
+    height: 130px;
+  }
+
+  .caller-name,
+  .in-call-name,
+  .end-call-title {
+    font-size: 1.5rem;
+  }
+
+  .caller-status,
+  .caller-request,
+  .in-call-status,
+  .end-call-message {
+    font-size: 0.95rem;
+  }
+
+  .button-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .button-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .button-icon-small {
+    width: 50px;
+    height: 50px;
+  }
+
+  .button-icon-small svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .control-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .control-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .phone-icon-circle {
+    width: 110px;
+    height: 110px;
+  }
+
+  .phone-icon-circle svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .call-button span,
+  .control-button span {
+    font-size: 0.9rem;
+  }
+
+  .action-row,
+  .control-row {
+    gap: 1rem;
+  }
+
+  .call-actions,
+  .in-call-controls {
+    gap: 1rem;
+  }
+
+  .call-timer,
+  .end-call-timer {
+    font-size: 1.2rem;
+  }
+
+  .truth-title {
+    font-size: 2rem;
+  }
+
+  .truth-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .flag-top {
+    max-width: 250px;
+  }
+
+  .main-image {
+    max-width: 300px;
+  }
+
+  .truth-button {
+    font-size: 1.1rem;
+    padding: 1.1rem 2.5rem;
+  }
+
+  .warning-text {
+    font-size: 0.95rem;
+  }
+
+  .quiz-flag {
+    max-width: 230px;
+  }
+
+  .quiz-question {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .quiz-option-button {
+    font-size: 1rem;
+    padding: 1.2rem 1.8rem;
+  }
+
+  .quiz-progress-container {
+    height: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-screen {
+    padding: 1.5rem;
+    padding-top: 3rem;
+  }
+
+  .quiz-flag {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  .quiz-progress-container {
+    height: 6px;
+    margin-bottom: 2rem;
+  }
+
+  .quiz-question {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .quiz-option-button {
+    font-size: 0.95rem;
+    padding: 1.1rem 1.5rem;
+  }
+
+  .quiz-option-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .quiz-counter {
+    font-size: 0.9rem;
+  }
+
+  .final-screen {
+    padding: 1.5rem;
+    padding-top: 3rem;
+  }
+
+  .final-flag {
+    max-width: 220px;
+    margin-bottom: 1.5rem;
+  }
+
+  .final-title {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .final-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .final-loading-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .final-loading-label,
+  .final-loading-percentage {
+    font-size: 0.95rem;
+  }
+
+  .final-progress-container {
+    height: 9px;
+  }
+
+  .final-image {
+    max-width: 550px;
+  }
+}
